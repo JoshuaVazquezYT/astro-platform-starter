@@ -1,0 +1,45 @@
+---
+import '../../src/styles/globals.css';
+import '../../src/styles/xp.css';
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Tahoma:wght@400;700&display=swap" rel="stylesheet" />
+    </head>
+    <body class="xp-body">
+        <div class="xp-desktop-container">
+            <slot />
+        </div>
+        <script>
+            // Initialize XP OS sounds and environment
+            window.xpOS = {
+                sounds: {
+                    startup: new Audio('/sounds/startup.mp3'),
+                    shutdown: new Audio('/sounds/shutdown.mp3'),
+                    error: new Audio('/sounds/error.wav'),
+                    notify: new Audio('/sounds/notify.wav')
+                },
+                playSound: function (soundName) {
+                    if (this.sounds[soundName]) {
+                        this.sounds[soundName].play().catch((e) => console.log('Sound play failed:', e));
+                    }
+                }
+            };
+        </script>
+    </body>
+</html>
