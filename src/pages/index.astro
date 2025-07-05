@@ -1,21 +1,182 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
+import XPLayout from '../layouts/XPLayout.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
-</Layout>
+<XPLayout title="Windows XP AI OS">
+    <div id="xp-desktop-root" class="xp-desktop-container">
+        <!-- XP Desktop will be loaded here via client-side JavaScript -->
+    </div>
+
+    <script>
+        // Client-side loading of the XP Desktop
+        import('../components/XPDesktop.tsx').then(({ XPDesktop }) => {
+            // This will be handled by Astro's client-side hydration
+        });
+    </script>
+</XPLayout>
+
+<script>
+    // Initialize XP OS when page loads
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('Windows XP AI OS Loading...');
+
+        // Show boot screen initially
+        const container = document.getElementById('xp-desktop-root');
+        if (container) {
+            container.innerHTML = `
+                <div class="xp-boot-screen">
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <div style="font-size: 48px; font-weight: bold; color: #0080ff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 20px;">
+                            Microsoft Windows XP
+                        </div>
+                        <div style="font-size: 18px; color: #cccccc; margin-bottom: 10px;">
+                            AI-Powered Edition
+                        </div>
+                        <div style="font-size: 14px; color: #888888;">
+                            Experience the nostalgia with modern AI features
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <div style="width: 300px; height: 20px; background: #333333; border: 2px inset #666666; border-radius: 10px; margin: 0 auto; overflow: hidden;">
+                            <div class="loading-bar"></div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; font-size: 16px; color: #ffffff;">
+                        Starting Windows XP AI OS...
+                    </div>
+                </div>
+            `;
+
+            // Simulate boot process
+            setTimeout(() => {
+                loadXPDesktop();
+            }, 3000);
+        }
+    });
+
+    function loadXPDesktop() {
+        const container = document.getElementById('xp-desktop-root');
+        if (container) {
+            container.innerHTML = `
+                <div class="xp-desktop-wallpaper"></div>
+                <div class="xp-desktop">
+                    <!-- Desktop Icons -->
+                    <div class="xp-desktop-icon" style="position: absolute; left: 20px; top: 20px;" onclick="openApplication('explorer')">
+                        <div style="font-size: 32px;">💻</div>
+                        <div>My Computer</div>
+                    </div>
+                    <div class="xp-desktop-icon" style="position: absolute; left: 20px; top: 100px;" onclick="openApplication('recycle')">
+                        <div style="font-size: 32px;">🗑️</div>
+                        <div>Recycle Bin</div>
+                    </div>
+                    <div class="xp-desktop-icon" style="position: absolute; left: 20px; top: 180px;" onclick="openApplication('ie')">
+                        <div style="font-size: 32px;">🌐</div>
+                        <div>Internet Explorer</div>
+                    </div>
+                    <div class="xp-desktop-icon" style="position: absolute; left: 20px; top: 260px;" onclick="openApplication('notepad')">
+                        <div style="font-size: 32px;">📄</div>
+                        <div>Notepad</div>
+                    </div>
+                    <div class="xp-desktop-icon" style="position: absolute; left: 20px; top: 340px;" onclick="openApplication('ai')">
+                        <div style="font-size: 32px;">🤖</div>
+                        <div>AI Assistant</div>
+                    </div>
+                </div>
+                
+                <!-- Taskbar -->
+                <div class="xp-taskbar">
+                    <button class="xp-start-button" onclick="toggleStartMenu()">
+                        <span style="font-size: 16px; color: #ffffff;">⊞</span>
+                        <span>start</span>
+                    </button>
+                    <div style="flex-grow: 1;"></div>
+                    <div class="xp-clock" style="color: white; font-size: 11px; padding: 4px 8px; border: 1px inset #245edb; background: rgba(0,0,0,0.2); border-radius: 2px; margin-right: 8px;">
+                        <span id="current-time">${new Date().toLocaleTimeString()}</span>
+                    </div>
+                </div>
+                
+                <!-- Start Menu (hidden by default) -->
+                <div id="start-menu" class="xp-start-menu" style="display: none;">
+                    <div class="xp-start-menu-header">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="font-size: 24px;">👤</div>
+                            <div>
+                                <div style="font-size: 14px; font-weight: bold;">Windows XP User</div>
+                                <div style="font-size: 10px; opacity: 0.8;">AI-Powered Edition</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xp-start-menu-items">
+                        <div class="xp-start-menu-item" onclick="openApplication('notepad')">
+                            <span style="font-size: 16px;">📄</span>
+                            <span>Notepad</span>
+                        </div>
+                        <div class="xp-start-menu-item" onclick="openApplication('ie')">
+                            <span style="font-size: 16px;">🌐</span>
+                            <span>Internet Explorer</span>
+                        </div>
+                        <div class="xp-start-menu-item" onclick="openApplication('ai')">
+                            <span style="font-size: 16px;">🤖</span>
+                            <span>AI Assistant</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Update clock
+            setInterval(updateClock, 1000);
+            updateClock();
+        }
+    }
+
+    function updateClock() {
+        const clockElement = document.getElementById('current-time');
+        if (clockElement) {
+            clockElement.textContent = new Date().toLocaleTimeString();
+        }
+    }
+
+    function toggleStartMenu() {
+        const startMenu = document.getElementById('start-menu');
+        if (startMenu) {
+            startMenu.style.display = startMenu.style.display === 'none' ? 'block' : 'none';
+        }
+    }
+
+    function openApplication(app) {
+        alert('Opening ' + app + ' application. This would launch the full React component in a production version.');
+        // In a full implementation, this would render the React components
+        toggleStartMenu(); // Close start menu after selection
+    }
+
+    // Close start menu when clicking outside
+    document.addEventListener('click', function (e) {
+        const startMenu = document.getElementById('start-menu');
+        const startButton = document.querySelector('.xp-start-button');
+
+        if (startMenu && startButton && !startMenu.contains(e.target) && !startButton.contains(e.target)) {
+            startMenu.style.display = 'none';
+        }
+    });
+</script>
+
+<style>
+    .loading-bar {
+        height: 100%;
+        background: linear-gradient(to right, #0080ff, #00ccff);
+        animation: loading-bar 2s ease-in-out infinite;
+        border-radius: 8px;
+    }
+
+    @keyframes loading-bar {
+        0% {
+            width: 0%;
+        }
+        50% {
+            width: 100%;
+        }
+        100% {
+            width: 0%;
+        }
+    }
+</style>

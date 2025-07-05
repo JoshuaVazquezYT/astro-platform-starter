@@ -1,5 +1,5 @@
 {
-  "name": "astro-netlify-platform-starter",
+  "name": "winxp-ai-os",
   "type": "module",
   "version": "0.1.0",
   "scripts": {
@@ -7,8 +7,12 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:4321 && electron .\"",
+    "electron-build": "npm run build && electron-builder"
   },
+  "main": "electron.js",
   "dependencies": {
     "@astrojs/netlify": "^6.2.3",
     "@astrojs/react": "^4.2.1",
@@ -25,10 +29,20 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^4.0.14",
-    "unique-names-generator": "^4.7.1"
+    "unique-names-generator": "^4.7.1",
+    "openai": "^4.0.0",
+    "react-draggable": "^4.4.6",
+    "react-rnd": "^10.4.1",
+    "howler": "^2.2.4",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/blobshape": "^1.0.3",
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.7",
+    "@types/uuid": "^9.0.0",
+    "concurrently": "^8.0.0",
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0",
+    "wait-on": "^7.0.0"
   }
 }
