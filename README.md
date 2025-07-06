@@ -1,8 +1,6 @@
-# Astro on Netlify Platform Starter
+# AI Video Generator - Astro Starter
 
-[Live Demo](https://astro-platform-starter.netlify.app/)
-
-A modern starter based on Astro.js, Tailwind, and [Netlify Core Primitives](https://docs.netlify.com/core/overview/#develop) (Edge Functions, Image CDN, Blob Store).
+A modern AI video generator application based on Astro.js, React, and Tailwind CSS, featuring 100 English voices and 100 video styles with SFW/NSFW modes.
 
 ## Astro Commands
 
@@ -17,9 +15,14 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## Deploying to Netlify
+## Features
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-platform-starter)
+- 🎭 100 English voices (50 SFW + 50 NSFW)
+- 🎨 100 video styles (50 SFW + 50 NSFW)
+- 🔒 Age verification for NSFW content
+- 🚀 Real-time generation progress
+- 📱 Responsive design
+- 🎯 Advanced filtering system
 
 ## Developing Locally
 
@@ -30,22 +33,22 @@ All commands are run from the root of the project, from a terminal:
 
 1. Clone this repository, then run `npm install` in its root directory.
 
-2. For the starter to have full functionality locally (e.g. edge functions, blob store), please ensure you have an up-to-date version of Netlify CLI. Run:
+2. Start the development server:
 
-```
-npm install netlify-cli@latest -g
-```
-
-3. Link your local repository to the deployed Netlify site. This will ensure you're using the same runtime version for both local development and your deployed site.
-
-```
-netlify link
+```bash
+npm run dev
 ```
 
-4. Then, run the Astro.js development server via Netlify CLI:
+3. Open your browser to [localhost:4321](http://localhost:4321) to see the application.
 
-```
-netlify dev
-```
+## Deployment
 
-If your browser doesn't navigate to the site automatically, visit [localhost:8888](http://localhost:8888).
+This application can be deployed to any static hosting platform. See `DEPLOYMENT_ALTERNATIVES.md` for detailed instructions on deploying to various platforms including:
+
+- Vercel (Recommended)
+- AWS Amplify
+- Firebase Hosting
+- GitHub Pages
+- Railway
+- Render
+- Self-hosted options
